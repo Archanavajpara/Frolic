@@ -2,6 +2,8 @@ const express=require("express");
 const mongoose=require("mongoose");
 const dotenv=require("dotenv");
 const cors=require("cors");
+const cookieParser=require("cookie-parser");
+
 dotenv.config();
 const app=express();
 
@@ -9,6 +11,7 @@ const app=express();
 
 app.use(cors());
 app.use(express.json());
+app.use(cookieParser());
 
 mongoose.connect(process.env.MONGO_URL).then(()=>{
     console.log("DB Connected");
